@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Suit for Visa test" verbose="1" >
+  <test name="List of tests for amazon" >
+    <classes>
+      <class name="com.amazon.qa.Testcases.Visa_postive_tests"/>
+      <class name="com.amazon.qa.Testcases.Visa_negative_tests"/>
+    </classes>
+ </test>
+</suite>

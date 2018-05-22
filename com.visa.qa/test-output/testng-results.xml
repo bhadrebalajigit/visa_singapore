@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="114812" started-at="2018-05-22T17:54:29Z" finished-at="2018-05-22T17:56:24Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="114812" started-at="2018-05-22T17:54:29Z" finished-at="2018-05-22T17:56:24Z">
+      <class name="com.amazon.qa.Testcases.Visa_negative_tests">
+        <test-method status="PASS" signature="setup()[pri:0, instance:com.amazon.qa.Testcases.Visa_negative_tests@7cf10a6f]" name="setup" is-config="true" duration-ms="31899" started-at="2018-05-22T23:24:29Z" finished-at="2018-05-22T23:25:01Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="Incorrect_username_Validate_Error()[pri:0, instance:com.amazon.qa.Testcases.Visa_negative_tests@7cf10a6f]" name="Incorrect_username_Validate_Error" duration-ms="82437" started-at="2018-05-22T23:25:01Z" finished-at="2018-05-22T23:26:23Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Incorrect_username_Validate_Error -->
+        <test-method status="PASS" signature="TearDown(org.testng.ITestResult)[pri:0, instance:com.amazon.qa.Testcases.Visa_negative_tests@7cf10a6f]" name="TearDown" is-config="true" duration-ms="462" started-at="2018-05-22T23:26:23Z" finished-at="2018-05-22T23:26:24Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=Incorrect_username_Validate_Error status=SUCCESS method=Visa_negative_tests.Incorrect_username_Validate_Error()[pri:0, instance:com.amazon.qa.Testcases.Visa_negative_tests@7cf10a6f] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TearDown -->
+      </class> <!-- com.amazon.qa.Testcases.Visa_negative_tests -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

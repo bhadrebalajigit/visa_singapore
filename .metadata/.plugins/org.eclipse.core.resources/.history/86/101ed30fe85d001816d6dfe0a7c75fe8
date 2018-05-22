@@ -1,0 +1,77 @@
+package com.amazon.qa.Testcases;
+
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+
+
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.testng.Assert;
+import org.testng.ITestResult;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+
+import com.amazon.qa.Pages.HomePage;
+import com.amazon.qa.Pages.LoginPage;
+import com.amazon.qa.Testbase.Testbase;
+import com.amazon.qa.utils.TestUtils;
+
+public class Visa_negative_tests extends Testbase {
+
+	HomePage homepage;
+	LoginPage loginpage;
+	public Visa_negative_tests() throws IOException {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	@BeforeMethod
+	public void setup() throws IOException
+	{
+		Testbase.initlization();
+		homepage= new HomePage();
+		loginpage=new LoginPage();
+	}
+
+	@Test(enabled=false)
+	public void Incorrect_username_Validate_Error() throws IOException
+	{
+		homepage.click_signin_Link();
+		System.out.println("***************Entering Invalid Username*****************");
+		loginpage.Enter_invalid_username(prop.getProperty("invalid_username"));
+		String invalid_email_Error_message;
+		invalid_email_Error_message=loginpage.Validate_error_message_email();
+		System.out.println("Error Message for Invalid Email Address:"+invalid_email_Error_message);
+		Assert.assertEquals("We cannot find an account with that email address",invalid_email_Error_message,"Validating Email address error message");
+		System.out.println("**************** Error Message Validated*****************");
+	}
+	
+	@Test
+	public void correct_username_inValidate_password() throws IOException
+	{
+		homepage.click_signin_Link();
+		loginpage.Enter_valid_Email_Invalid_password(prop.getProperty("username"),(prop.getProperty("invalid_password")));
+		String invalid_password_Error_message;
+		invalid_password_Error_message=loginpage.Validate_error_message_password();
+		System.out.println("Error Message for password:"+invalid_password_Error_message);
+		Assert.assertEquals("Your password is incorrect", invalid_password_Error_message,"Validating password Error message");
+	}
+	
+	 @AfterMethod
+	 public void TearDown(ITestResult result) throws IOException{
+	  
+	  if (result.getStatus() == ITestResult.FAILURE || result.getStatus() == ITestResult.SUCCESS ){
+	   TakesScreenshot ts = (TakesScreenshot)driver;
+	   File srcFile = ts.getScreenshotAs(OutputType.FILE);
+	   FileUtils.copyFile(srcFile, new File("E://Visa_Singapore_project//com.visa.qa//src//test//java//com//amazon//qa//Screenshots//Negative//"+result.getName()+"_"+new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date())+".jpg"));
+	   //result.getname() method will give you current test case name. 
+	   //./ScreenShots/ tell you that, in your current directory, create folder ScreenShots. dot represents current directory
+	  }
+	  driver.close();
+	 }
+}
